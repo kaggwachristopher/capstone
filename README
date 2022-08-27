@@ -1,10 +1,10 @@
-# Full Stack Capstone Project (Casting Agency)
+# Casting Agency 
 
-  
+  My Udacity nanodegree final project (**Capstone**)
 
-### Introduction
+## Introduction
 
-Casting-Agency is the final project in Udacity Nanodgree. The Casting Agency models a company that is responsible for creating movies and managing and assigning actors to those movies.
+The Casting Agency models a company that is responsible for creating movies and managing and assigning actors to those movies. This application aims at simplifying the streamline process.
 
   
 
@@ -12,8 +12,6 @@ Casting-Agency is the final project in Udacity Nanodgree. The Casting Agency mod
 
 The casting agency API is running live on heroku and can be accessed using the link below
 https://chris-capstone.herokuapp.com
-
-  
 
 ---
 
@@ -76,7 +74,7 @@ pip install -r requirements.txt
 - [Python-Jose](https://python-jose.readthedocs.io/en/latest/) JavaScript Object Signing and Encryption for JWTs. Useful for encoding, decoding, and verifying JWTS.
 
   
-## Create a `.env` file
+### Create a `.env` file
 This app needs a number of environment variables to be up and running
 
  - Create a file on the root directory named `.env`
@@ -118,7 +116,7 @@ There are 3 main roles in the Casting Agency API.
 
   
 
- - **Casting Director :**
+ 2. **Casting Director :**
 
  - All permissions a Casting Assistant has
 
@@ -130,7 +128,7 @@ There are 3 main roles in the Casting Agency API.
 
  - update:movie
 
- - **Executive Producer :**
+ 3. **Executive Producer :**
 
  - All permissions a Casting Director has
 
@@ -145,15 +143,13 @@ Open postman and import the collection from the file `Capstone.postman_collectio
  - Each role has a default token to help you access and test the endpoints
 - Each folder also includes authentication credentials to enable you generate a new access token using implicit grant type. Generating a new token in post man will open a new window which will allow you to sign in with **google**, **github** or **email and password**
 - ***Tokens should be fetched from within their folders to avoid mixup of permissions***
-### 
+
 #### Hit endpoints
 - By default the host variable in postman points to heroku change this value to your local while on development
 
 ### Error Handling
 
 Errors are returned as JSON objects in the following format:
-
-  
 
 #### 400: Bad Request
 
@@ -164,8 +160,6 @@ Errors are returned as JSON objects in the following format:
 #### 422: Not Processable
 
 #### 500: Internal Server Error
-
-  
 
 ---
 
@@ -190,34 +184,19 @@ Errors are returned as JSON objects in the following format:
 - Returns: JSON response containing all actors information, request status and the number of actors.
 
 
-```
-
+```json
 {
-
 "Actors": [
-
 {
-
 "age": 27,
-
 "gender": "male",
-
 "id": 1,
-
 "name": "ali"
-
 }
-
 ],
-
 "success": true,
-
 "total_Actors": 1
-
 }
-
-  
-
 ```
 
   
@@ -349,19 +328,15 @@ Errors are returned as JSON objects in the following format:
 - Request Arguments: movies_id
 
 - Request Body: title(type str), release_date(type datetime
-
+```json
+ { "title": "Fast and furious"}
+```
 - Returns: Success value.
 
-- Sample : curl https://casting-agency-project-fsnd.herokuapp.com/movies/1 -X PATCH -H "Content-Type: application/json" -d '{ "title": "edit movie"}'
-
-```
-
+```json
 {
-
 "success": true,
-
 }
-
 ```
 
   
@@ -376,23 +351,11 @@ Errors are returned as JSON objects in the following format:
 
 - Returns: Success value.
 
-- Sample : curl https://casting-agency-project-fsnd.herokuapp.com/movie/3 -X DELETE -H "Content-Type: application/json"
-
-```
-
+```json
 {
-
 "success": true,
-
 }
-
 ```
-
-  
-  
-  
-  
-  
 
 ## Testing
 
@@ -406,7 +369,7 @@ You can test the endpoint using Postman or Unittest.
 
 python test_app.py
 
-To run the tests, run
+To run the tests, run 
 
 ```
 
@@ -419,15 +382,9 @@ psql capstone_test < capstone.psql
 python test_app.py
 
 ```
-
+This will create a test database and run the tests, however make sure to have the  `DATABASE_URL` to this database in your `.env` file
   
 
 #### Postman
-
-  
-
-the test endpoint in Heroku :-
-
-  
-
-Import Casting-Agency.postman_collection.json , then run the test
+- Make sure you have the correct tokens for each role in your `.env`
+- Run the postman collection
