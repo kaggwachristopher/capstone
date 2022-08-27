@@ -188,10 +188,10 @@ Errors are returned as JSON objects in the following format:
 {
 "Actors": [
 {
-"age": 27,
+"age": 36,
 "gender": "male",
 "id": 1,
-"name": "ali"
+"name": "Summo Hung"
 }
 ],
 "success": true,
@@ -277,8 +277,6 @@ Errors are returned as JSON objects in the following format:
 - Request Arguments: None
 
 - Returns: JSON response containing all movies information, request status and the number of movies.
-
-- Sample : curl https://casting-agency-project-fsnd.herokuapp.com/movies
 
 ```json
 	{
@@ -367,19 +365,17 @@ You can test the endpoint using Postman or Unittest.
 
   
 
-python test_app.py
-
 To run the tests, run 
 
-```
+```bash
 
-dropdb capstone_test
+$ dropdb capstone_test
 
-createdb capstone_test
+$ createdb capstone_test
 
-psql capstone_test < capstone.psql
+$ psql capstone_test < capstone.psql
 
-python test_app.py
+$ python test_app.py
 
 ```
 This will create a test database and run the tests, however make sure to have the  `DATABASE_URL` to this database in your `.env` file
