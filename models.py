@@ -9,7 +9,6 @@ db = SQLAlchemy()
 
 '''
 setup_db(app)
-binds a flask application and a SQLAlchemy service
 '''
 
 
@@ -19,8 +18,9 @@ def setup_db(app, database_path=database_path):
     db.app = app
     db.init_app(app)
 
-    if os.environ['FLASK_ENV'].lower() == 'development':
-        db.create_all()
+# uncomment if you prefer not to use migrations , it will create for you the required entities
+    # if os.environ['FLASK_ENV'].lower() == 'development':
+    #     db.create_all()
 
 
 class MoviesActors(db.Model):
